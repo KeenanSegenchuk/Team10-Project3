@@ -1,0 +1,8 @@
+function [signal] = lowPdownS(signal, f, d)
+%LOWPASS & DOWNSAMPLE: lowpass signal at freq. f and downsample signal at downS rate d
+F_s = length(signal) / 6;
+[signal, d] = lowpass(signal, f, F_s);
+signal = signal.';
+size(signal)
+signal = decimate(signal, d);
+end
